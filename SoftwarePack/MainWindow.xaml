@@ -1,0 +1,109 @@
+﻿<Window x:Class="SoftwarePack.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SoftwarePack"
+        mc:Ignorable="d"
+         Title="SofwarePack" Height="660" Width="420" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="199*"/>
+            <RowDefinition Height="533*"/>
+            <RowDefinition Height="28*"/>
+        </Grid.RowDefinitions>
+
+
+        <Image Source="/images/bgtop.png" Stretch="Fill"/>
+        <local:Close Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="36" Width="82" />
+
+        <Label Name="lbl_Ver" Content="" Grid.Row="2" HorizontalAlignment="Center" Foreground="Gray" MouseUp="lbl_Ver_MouseUp"/>
+        <!--产品信息填写-->
+        <Grid x:Name="step1" Grid.Row="1" Visibility="Visible">
+
+            <Label Content="软件名称：" HorizontalAlignment="Left" Margin="62,45,0,0" VerticalAlignment="Top" Height="25" Width="70"/>
+            <TextBox HorizontalAlignment="Left" x:Name="txtSoftName" Width="250" Height="30" FontSize="20" Foreground="Black" VerticalContentAlignment="Top" Margin="132,45,0,388">
+                
+            </TextBox>
+
+            <Label Content="软件版本：" HorizontalAlignment="Left" Margin="62,99,0,0" VerticalAlignment="Top" Height="25" Width="70"/>
+            <TextBox HorizontalAlignment="Left" Text="1.0.0.0" FontSize="20" x:Name="txtSoftVersion" Width="250" Height="30" Foreground="Black" VerticalContentAlignment="Center" Margin="132,95,0,338">
+                
+            </TextBox>
+
+            <Label Content="软件路径：" HorizontalAlignment="Left" Margin="62,152,0,0" VerticalAlignment="Top" Height="25" Width="70"/>
+            <TextBox HorizontalAlignment="Left" x:Name="txtSoftPath" Width="210" Height="30" Foreground="Black" VerticalContentAlignment="Center" Margin="132,148,0,285">
+                
+            </TextBox>
+            <Image x:Name="img_OpenSoftPath" Source="images/btn_path_normal.png" Stretch="Fill" HorizontalAlignment="Left" Height="30" Margin="347,148,0,0" VerticalAlignment="Top" Width="36" MouseUp="img_btnSoftPath_MouseUp"/>
+
+            <Label Content="主执行程序：" HorizontalAlignment="Left" Margin="51,205,0,0" VerticalAlignment="Top" Height="25" Width="79"/>
+            <TextBox HorizontalAlignment="Left" x:Name="txtMainSoftPath" Width="210" Height="30" Foreground="Black" VerticalContentAlignment="Center" Margin="132,201,0,232">
+                
+            </TextBox>
+            <Image x:Name="img_OpenMainSoftPath" Source="images/btn_path_normal.png" Stretch="Fill" HorizontalAlignment="Left" Height="30" Margin="346,201,0,0" VerticalAlignment="Top" Width="36" MouseUp="img_OpenMainSoftPath_MouseUp" />
+
+            <Label Content="图标：" HorizontalAlignment="Left" Margin="90,291,0,0" VerticalAlignment="Top" Height="25" Width="46"/>
+            <Image x:Name="imgSoftIcon" MouseUp="img_form_MouseUp" Source="/images/logo.ico" HorizontalAlignment="Left" Height="36" Margin="141,280,0,0" VerticalAlignment="Top" Width="36"/>
+            <Label Content="卸载图标：" HorizontalAlignment="Left" Margin="236,291,0,0" VerticalAlignment="Top" Height="25" Width="70"/>
+            <Image x:Name="imgSoftUninstIcon" MouseUp="img_form_MouseUp" Source="images/uninst.ico" HorizontalAlignment="Left" Height="36" Margin="311,280,0,0" VerticalAlignment="Top" Width="36"/>
+
+            <Button x:Name="btnNext" Content="下一步" Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="300,384,0,0" VerticalAlignment="Top" Width="87" Height="27" Click="btnNext_Click">
+                
+            </Button>
+
+        </Grid>
+
+        <!--界面图片自定义-->
+        <Grid x:Name="step2" Visibility="Hidden" Grid.Row="1">
+            <Label Content="刷新" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Cursor="Hand" Margin="-21,375,0,0" VerticalAlignment="Top" Height="25" Width="94">
+               
+            </Label>
+
+            <!--主图-->
+            <Label Content="主图片(1张)：请添加安装程序主界面（尺寸570*247）" HorizontalAlignment="Left" Margin="21,5,0,0" VerticalAlignment="Top" Height="25" Width="355"/>
+            <Border BorderThickness="1" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="150,30,150,0" Height="85" Width="120">
+                <Image x:Name="img_TopLogo" Source="images/btn_addimg.png" HorizontalAlignment="Left" Stretch="Fill"  Height="85" VerticalAlignment="Top" Width="120" MouseUp="img_form_MouseUp"/>
+            </Border>
+
+            <!--轮播图-->
+            <Label Content="轮播图片(3张)：请添加安装过程中要展示的图片（尺寸570*345）" HorizontalAlignment="Left" Margin="21,120,0,0" VerticalAlignment="Top" Height="25" Width="368"/>
+            <Border BorderThickness="1" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="21,150,279,0" Height="85" Width="120">
+                <Image x:Name="img_Carousel_1" MouseUp="img_form_MouseUp" Source="images/btn_addimg.png" HorizontalAlignment="Left" Stretch="Fill"  Height="85" VerticalAlignment="Top" Width="120" Margin="-1"/>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="150,150,150,0" Height="85" Width="120">
+                <Image x:Name="img_Carousel_2" MouseUp="img_form_MouseUp" Source="images/btn_addimg.png" HorizontalAlignment="Left" Stretch="Fill"  Height="85" VerticalAlignment="Top" Width="120"/>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="282,150,18,0" Height="85" Width="120">
+                <Image x:Name="img_Carousel_3" MouseUp="img_form_MouseUp" Source="images/btn_addimg.png" HorizontalAlignment="Left" Stretch="Fill"  Height="85" VerticalAlignment="Top" Width="120"/>
+            </Border>
+
+            <!--卸载图片-->
+            <Label Content="卸载界面图片(3张)：请添加卸载过程中要展示的图片（尺寸570*330）" HorizontalAlignment="Left" Margin="21,240,0,0" VerticalAlignment="Top" Height="25" Width="381"/>
+            <Border BorderThickness="1" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="21,270,279,0"  Height="85" Width="120">
+                <Image x:Name="img_Uninstall_1" MouseUp="img_form_MouseUp" Source="images/btn_addimg.png" HorizontalAlignment="Left" Stretch="Fill"  Height="85" VerticalAlignment="Top" Width="120"/>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="150,270,150,0" Height="85" Width="120">
+                <Image x:Name="img_Uninstall_2" MouseUp="img_form_MouseUp" Source="images/btn_addimg.png" HorizontalAlignment="Left" Stretch="Fill"  Height="85"  VerticalAlignment="Top" Width="120"/>
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="282,270,18,0" Height="85" Width="120">
+                <Image x:Name="img_Uninstall_3" MouseUp="img_form_MouseUp" Source="images/btn_addimg.png" HorizontalAlignment="Left" Stretch="Fill"  Height="85"  VerticalAlignment="Top" Width="120"/>
+            </Border>
+
+            <Label Name="lbl_OpenResource" Content="打开资源所在文件夹" Cursor="Hand" HorizontalAlignment="Left" Margin="150,375,0,0" VerticalAlignment="Top" Height="25" Width="130" Foreground="Gray" FontStyle="Italic" MouseUp="lbl_OpenResource_MouseUp"/>
+
+            <Label Name="lbl_OpenOutput" Content="打开输出文件夹" Cursor="Hand" HorizontalAlignment="Left" Margin="303,375,0,0" VerticalAlignment="Top" Height="25" Width="99" Foreground="Gray" FontStyle="Italic" MouseUp="lbl_OpenOutput_MouseUp"/>
+
+            <Button x:Name="btnLastStep" Content="上一步" Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="206,420,0,0" VerticalAlignment="Top" Width="87" Height="27" RenderTransformOrigin="0.506,0.481" Click="btnLastStep_Click">
+               
+            </Button>
+
+            <Button x:Name="btnBuild" Content="打包" Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="313,420,0,0" VerticalAlignment="Top" Width="89" Height="27" Click="btnBuild_Click" RenderTransformOrigin="0.506,0.481">
+                
+            </Button>
+
+        </Grid>
+    </Grid>
+</Window>

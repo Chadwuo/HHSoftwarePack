@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="SoftwarePack.Close"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="36" d:DesignWidth="86">
+    <Grid HorizontalAlignment="Right" Width="86">
+        <Image x:Name="image_min" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" Height="26" Margin="0,4,48,0" MouseUp="image_min_MouseUp" Source="/images/最小化.png"/>
+        <Image x:Name="image_close" HorizontalAlignment="Right" VerticalAlignment="Top" Width="33" Height="36" Margin="0,0,4,0" MouseUp="image_close_MouseUp" Source="/images/退出.png"/>
+    </Grid>
+</UserControl>
