@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Panuon.UI.Silver;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -23,7 +24,7 @@ namespace SoftwarePack
         private void image_close_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Window win = Window.GetWindow(this);
-            if (System.Windows.MessageBox.Show("确认退出？", "提示", System.Windows.MessageBoxButton.YesNo) == System.Windows.MessageBoxResult.Yes)
+            if (MessageBoxX.Show("确认要退出吗？", "退出", Application.Current.MainWindow, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Application.Current.Shutdown(-1);
             }

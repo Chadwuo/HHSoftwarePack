@@ -1,4 +1,5 @@
-﻿using SevenZip;
+﻿using Panuon.UI.Silver;
+using SevenZip;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -45,13 +46,37 @@ namespace SoftwarePack
                 SevenZipBase.SetLibraryPath(rootDirPath + @"\x86\7z.dll");
             }
 
+            // 是否存在打包核心库
+            if (Directory.Exists(Path.Combine(rootDirPath, "SoftSetupCore")))
+            {
+                // skin资源图片
+                LoadImgageResources();
+            }
+            else
+            {
+                if (File.Exists(Path.Combine(rootDirPath, "SoftSetupCore.7z")))
+                {
+                    SevenZipExtractor zipExtractor = new SevenZipExtractor(Path.Combine(rootDirPath, "SoftSetupCore.7z"));
+                    zipExtractor.BeginExtractArchive(Path.Combine(rootDirPath));
+
+                    // 解压完成  
+                    zipExtractor.ExtractionFinished += (obj, eventArgs) =>
+                    {
+                        LoadImgageResources();
+                    };
+                }
+            }
+
             lbl_Ver.Content = verStr;
-            // skin资源图片
-            LoadImgageResources();
+
         }
 
 
-
+        /// <summary>
+        /// 按钮动作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void img_form_MouseUp(object sender, MouseButtonEventArgs e)
         {
             string filterStr = "图片文件(*.png)|*.png";
@@ -111,9 +136,9 @@ namespace SoftwarePack
         /// </summary>
         private void LoadImgageResources(object sender = null, string imgUrl = null)
         {
-            //skin资源图片
             try
             {
+                //skin资源图片
                 if (string.IsNullOrEmpty(imgUrl) || sender == null)
                 {
                     imgSoftIcon.Source = this.GetBitmapImage(Path.Combine(rootDirPath, SkinPath.SoftIcon));
@@ -133,12 +158,9 @@ namespace SoftwarePack
                     Image img = sender as Image;
                     img.Source = this.GetBitmapImage(imgUrl);
                 }
-
-
             }
-            catch (Exception)
+            catch
             {
-
             }
 
         }
@@ -233,13 +255,17 @@ namespace SoftwarePack
 
                 step1.Visibility = Visibility.Hidden;
                 step2.Visibility = Visibility.Visible;
-               
+
             }
             catch (Exception ex)
             {
+                System.Windows.MessageBox.Show($"异常错误：{ex.Message}", "错误", System.Windows.MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
+        /// <summary>
+        /// 压缩应用程序
+        /// </summary>
         private void CompressorSoftware()
         {
             // 打包app
@@ -319,8 +345,8 @@ namespace SoftwarePack
                               $"\r\n!define INSTALL_DEFALT_SETUPPATH    \"\"       #默认生成的安装路径  " +
                               $"\r\n!define EXE_NAME                    \"{mainEXEName}.exe\"" +
                               $"\r\n!define PRODUCT_VERSION             \"{softVersion}\"  #ProductVersion必须是X.X.X.X" +
-                              $"\r\n!define PRODUCT_PUBLISHER           \"阳光心健\"" +
-                              $"\r\n!define PRODUCT_LEGAL               \"阳光心健 Copyright（c）2021\"" +
+                              $"\r\n!define PRODUCT_PUBLISHER           \"Micahh\"" +
+                              $"\r\n!define PRODUCT_LEGAL               \"Micahh Copyright（c）2021\"" +
                               $"\r\n!define INSTALL_OUTPUT_NAME         \"{softName}_Setup_{DateTime.Now.ToString("yyyyMMddHHmm")}.exe\"" +
                               "\r\n# ====================== 自定义宏 安装信息==============================" +
                               "\r\n!define INSTALL_7Z_PATH             \"..\\app.7z\"" +
@@ -361,13 +387,18 @@ namespace SoftwarePack
             System.Diagnostics.Process.Start("explorer.exe", Path.Combine(rootDirPath, @"SoftSetupCore\SetupScripts\runtime\skin\form\"));
         }
 
+        /// <summary>
+        /// 打开输出文件夹
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbl_OpenOutput_MouseUp(object sender, MouseButtonEventArgs e)
         {
             System.Diagnostics.Process.Start("explorer.exe", Path.Combine(rootDirPath, @"Output\"));
         }
 
         /// <summary>
-        /// 
+        /// 版本按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
