@@ -1,4 +1,5 @@
 ﻿using Panuon.UI.Silver;
+using Panuon.UI.Silver.Core;
 using SevenZip;
 using System;
 using System.Diagnostics;
@@ -22,9 +23,19 @@ namespace SoftwarePack
         /// </summary>
         private string rootDirPath = AppDomain.CurrentDomain.BaseDirectory;
 
+        /// <summary>
+        /// 版本信息
+        /// </summary>
         private string verStr = "© 2021 Micahh MIT license";
 
+        /// <summary>
+        /// 是否压缩完成
+        /// </summary>
         private bool IsCompleteCompressor;
+
+        /// <summary>
+        /// MainWindow
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -68,10 +79,13 @@ namespace SoftwarePack
             }
 
             lbl_Ver.Content = verStr;
-
         }
 
-
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Begin dragging the window
+            this.DragMove();
+        }
         /// <summary>
         /// 按钮动作
         /// </summary>
@@ -256,10 +270,11 @@ namespace SoftwarePack
                 step1.Visibility = Visibility.Hidden;
                 step2.Visibility = Visibility.Visible;
 
+               
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show($"异常错误：{ex.Message}", "错误", System.Windows.MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxX.Show($"异常错误：{ex.Message}", "错误", Application.Current.MainWindow, MessageBoxButton.OK, new MessageBoxXConfigurations() { MessageBoxIcon = MessageBoxIcon.Error });
             }
         }
 
@@ -283,7 +298,7 @@ namespace SoftwarePack
                 btnBuild.IsEnabled = true;
                 btnLastStep.IsEnabled = true;
                 IsCompleteCompressor = true;
-                lbl_Ver.Content = "准备工作已全部完成，开始打属于你的安装包吧";
+                lbl_Ver.Content = "准备工作已全部完成，开始打包属于你的安装包吧";
             };
         }
 
@@ -314,25 +329,25 @@ namespace SoftwarePack
             productInfoData = string.Empty;
             if (string.IsNullOrEmpty(txtSoftName.Text))
             {
-                MessageBox.Show("请输入应用程序名称");
+                MessageBoxX.Show("请输入应用程序名称", "提示", Application.Current.MainWindow, MessageBoxButton.OK);
                 return false;
             }
 
             // 版本号验证
             if (!Regex.IsMatch(softVersion, @"^([1-9]\d|[1-9])(\.([1-9]\d|\d)){3}$"))
             {
-                MessageBox.Show("请输入版本号");
+                MessageBoxX.Show("请输入版本号", "提示", Application.Current.MainWindow, MessageBoxButton.OK);
                 return false;
             }
 
             if (string.IsNullOrEmpty(txtSoftPath.Text))
             {
-                MessageBox.Show("请选择应用程序路径");
+                MessageBoxX.Show("请选择应用程序路径", "提示", Application.Current.MainWindow, MessageBoxButton.OK);
                 return false;
             }
             if (string.IsNullOrEmpty(txtMainSoftPath.Text))
             {
-                MessageBox.Show("请选择应用程序主启动程序");
+                MessageBoxX.Show("请选择应用程序主启动程序", "提示", Application.Current.MainWindow, MessageBoxButton.OK);
                 return false;
             }
 
