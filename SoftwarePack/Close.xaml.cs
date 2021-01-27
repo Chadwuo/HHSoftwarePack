@@ -24,7 +24,7 @@ namespace SoftwarePack
         private void image_close_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Window win = Window.GetWindow(this);
-            if (MessageBoxX.Show("确认要退出吗？", "退出", Application.Current.MainWindow, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBoxX.Show("确认要退出吗？", "退出", Application.Current.MainWindow, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 Application.Current.Shutdown(-1);
             }

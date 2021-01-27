@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
 
-        <Image Source="/images/bgtop.png" Stretch="Fill"/>
+        <Image Source="/images/bgtop.png" Stretch="Fill" MouseDown="Window_MouseDown"/>
         <local:Close Margin="0,10,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="36" Width="82" />
 
         <Label Name="lbl_Ver" Content="" Grid.Row="2" HorizontalAlignment="Center" Foreground="Gray" MouseUp="lbl_Ver_MouseUp"/>
@@ -23,7 +23,7 @@
         <Grid x:Name="step1" Grid.Row="1" Visibility="Visible">
 
             <Label Content="软件名称：" HorizontalAlignment="Left" Margin="62,45,0,0" VerticalAlignment="Top" Height="25" Width="70"/>
-            <TextBox HorizontalAlignment="Left" x:Name="txtSoftName" Width="250" Height="30" FontSize="18" Foreground="Black" VerticalContentAlignment="Top" Margin="132,45,0,388"
+            <TextBox HorizontalAlignment="Left" x:Name="txtSoftName" Width="250" Height="30" Foreground="Black" VerticalContentAlignment="Center" Margin="132,45,0,388"
                      pu:TextBoxHelper.Watermark="请输入软件名称"
                      pu:TextBoxHelper.FocusedBorderBrush="#00FFE2"
                      pu:TextBoxHelper.FocusedShadowColor="#00FFE2"
