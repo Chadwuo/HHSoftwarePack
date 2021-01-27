@@ -5,7 +5,7 @@
    	<VerticalLayout width="570" height="247" bkimage="file='form\uninstall_bg1.png'">
 	<VerticalLayout bkimage="file='form\bgtop.png'"></VerticalLayout>
 	</VerticalLayout>
-	<VerticalLayout bkcolor="#ffffffff" >
+	<VerticalLayout bkcolor="#FFF5F5F5" >
 	
 	<Button name="btnInstall" padding="165,35,0,0" font="2" normalimage="file='form\install.png' source='0,0,240,38'" hotimage="file='form\install.png' source='0,38,240,76'" pushedimage="file='form\install.png' source='0,76,240,114'" height="38" width="240" />
 	

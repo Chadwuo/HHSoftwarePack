@@ -5,7 +5,7 @@
 		<VerticalLayout width="570" height="345">
 			<ImageShow images="form\step1.png form\step2.png form\step3.png" imagecount="3" loop="true" width="570" height="345" />
 		</VerticalLayout>
-		<VerticalLayout bkcolor="#ffffffff" >   
+		<VerticalLayout bkcolor="#FFF5F5F5" >   
 			<Control height="30" />
 			<Slider name="slrProgress" padding="25,0,0,0" height="3" width="520" mouse="false" foreimage="form\process_top.png" bkimage="form\process_bottom.png" thumbsize="0,0" bkcolor="#FFD8D8D8"  />
 		</VerticalLayout>	

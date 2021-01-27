@@ -5,7 +5,7 @@
     <VerticalLayout width="570" height="247" bkimage="file='form\uninstall_bg1.png'">
 	<VerticalLayout bkimage="file='form\bgtop.png'"></VerticalLayout>
 	</VerticalLayout>
-	<VerticalLayout bkcolor="#ffffffff" >	
+	<VerticalLayout bkcolor="#FFF5F5F5" >	
 	<Button name="btnRun" padding="210,50,0,0" text="开始使用" font="2" bkcolor="0xFF3BD02C" textcolor="0xFFFFFFFF"  borderround="4,4" height="50" width="160" />
 	</VerticalLayout>
  </VerticalLayout>

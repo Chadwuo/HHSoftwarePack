@@ -267,6 +267,7 @@ namespace SoftwarePack
                     btnLastStep.IsEnabled = false;
                 }
 
+                lbl_Ver.Content = "正在构建你的应用程序，请稍等...";
                 step1.Visibility = Visibility.Hidden;
                 step2.Visibility = Visibility.Visible;
 
