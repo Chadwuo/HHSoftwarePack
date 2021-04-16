@@ -71,10 +71,10 @@ HHSoftwarePack.exe
 
   如需退款请将带有付款单号的截图和收款二维码发送邮件至：1067051515@qq.coom
 
-<p align="center">
- <img src="Doc/Alipay.JPG" alt="Logo" width="260" height="260">
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <img src="Doc/WeChat.JPG" alt="Logo" width="260" height="260">
-</p>
-
+<table>
+    <tr>
+        <td><img src="Doc/Alipay.JPG" alt="Logo" width="260" height="260"></td>
+        <td><img src="Doc/WeChat.JPG" alt="Logo" width="260" height="260"></td>
+    </tr>
+</table>
 
