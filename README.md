@@ -1,6 +1,6 @@
 
 <p align="center">
-  <a href="https://github.com/shaojintian/Best_README_template/">
+  <a href="https://github.com/micahh28/HHSoftwarePack">
     <img src="Doc/favicon.ico" alt="Logo" width="80" height="80">
   </a>
 
@@ -23,6 +23,7 @@
 
 - [入门指南](#入门指南)
 - [程序文件目录说明](#程序文件目录说明)
+- [示例](#示例)
 - [版权说明](#版权说明)
 - [作者](#作者)
 - [捐赠](#捐赠)
@@ -45,17 +46,27 @@ HHSoftwarePack.exe
 
 ```
 
-### 作者
+### 示例
 
-- [micahh28](https://github.com/micahh28)
-
+<img src="Doc/1.png">
+<img src="Doc/2.png">
+<img src="Doc/3.png">
+<img src="Doc/4.png">
+<img src="Doc/5.png">
+<img src="Doc/6.png">
+<img src="Doc/7.png">
 ### 版权说明
 
 该项目签署了MIT 授权许可，详情请参阅 [LICENSE.txt](https://github.com/micahh28/HHSoftwarePack/blob/main/LICENSE)
 
+### 作者
+
+- [micahh28](https://github.com/micahh28) .Net开发的小学生
+
+
 ### 捐赠
 
-- 请在体验后再考虑自愿打赏或捐助。倘若于你有益，欢迎小额赞赏（学生党请勿投币）。
+- 请在体验后再考虑自愿捐助。倘若于你有益，欢迎小额赞赏（学生党请勿投币）。
 
   如需退款请将带有付款单号的截图和收款二维码发送邮件至：1067051515@qq.coom
 
