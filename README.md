@@ -26,7 +26,8 @@
 - [示例](#示例)
 - [版权说明](#版权说明)
 - [作者](#作者)
-- [捐赠](#捐赠)
+- [鸣谢](#鸣谢)
+<!-- - [捐赠](#捐赠) -->
 
 ### 入门指南
 HHSoftwarePack 是基于NSIS方式的安装包制作工具，界面可以自由定制，拿来即用。快速为windows程序打包成setup.exe文件
@@ -64,8 +65,11 @@ HHSoftwarePack.exe
 
 - [micahh28](https://github.com/micahh28) .Net开发的小学生
 
+### 鸣谢
 
-### 捐赠
+- 倘若于你有益，请点个赞吧。
+
+<!-- ### 捐赠
 
 - 请在体验后再考虑自愿捐助。倘若于你有益，欢迎小额赞赏（学生党请勿投币）。
 
@@ -76,5 +80,6 @@ HHSoftwarePack.exe
         <td><img src="Doc/Alipay.JPG" alt="Logo" width="260" height="260"></td>
         <td><img src="Doc/WeChat.JPG" alt="Logo" width="260" height="260"></td>
     </tr>
-</table>
+</table> -->
+
 
