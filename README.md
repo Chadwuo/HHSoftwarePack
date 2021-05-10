@@ -66,8 +66,8 @@ HHSoftwarePack.exe
 - [micahh28](https://github.com/micahh28) .Net开发的小学生
 
 ### 鸣谢
-
-- 倘若于你有益，请点个赞吧。
+- CCTV
+（倘若于你有益，请点个赞吧。）
 
 <!-- ### 捐赠
 
