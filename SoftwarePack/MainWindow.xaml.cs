@@ -86,6 +86,7 @@ namespace SoftwarePack
             // Begin dragging the window
             this.DragMove();
         }
+
         /// <summary>
         /// 按钮动作
         /// </summary>
@@ -252,7 +253,7 @@ namespace SoftwarePack
 
                 if (IsCompleteCompressor)
                 {
-                    if (System.Windows.MessageBox.Show("是否重新构建你的应用程序？", "询问", System.Windows.MessageBoxButton.YesNo, MessageBoxImage.Question) == System.Windows.MessageBoxResult.Yes)
+                    if (MessageBoxX.Show("是否需要用新参数重新构建你的应用程序？", "询问", Application.Current.MainWindow, MessageBoxButton.YesNo, new MessageBoxXConfigurations() { MessageBoxIcon = MessageBoxIcon.Question }) == MessageBoxResult.Yes)
                     {
                         CompressorSoftware();
                         btnBuild.IsEnabled = false;
@@ -267,7 +268,6 @@ namespace SoftwarePack
                     btnLastStep.IsEnabled = false;
                 }
 
-                lbl_Ver.Content = "正在构建你的应用程序，请稍等...";
                 step1.Visibility = Visibility.Hidden;
                 step2.Visibility = Visibility.Visible;
 
@@ -299,7 +299,7 @@ namespace SoftwarePack
                 btnBuild.IsEnabled = true;
                 btnLastStep.IsEnabled = true;
                 IsCompleteCompressor = true;
-                lbl_Ver.Content = "准备工作已全部完成，开始打包属于你的安装包吧";
+                lbl_Ver.Content = "准备工作已全部完成，开始生成属于你的安装包吧";
             };
         }
 
@@ -315,6 +315,8 @@ namespace SoftwarePack
             startInfo.CreateNoWindow = false;
             startInfo.FileName = Path.Combine(rootDirPath, @"SoftSetupCore\run-build.bat");
             Process.Start(startInfo);
+
+            lbl_Ver.Content = "请等待命令执行完成，请勿关闭程序";
         }
 
         /// <summary>
@@ -337,7 +339,7 @@ namespace SoftwarePack
             // 版本号验证
             if (!Regex.IsMatch(softVersion, @"^([1-9]\d|[1-9])(\.([1-9]\d|\d)){3}$"))
             {
-                MessageBoxX.Show("请输入版本号", "提示", Application.Current.MainWindow, MessageBoxButton.OK);
+                MessageBoxX.Show("请输入正确的版本号", "提示", Application.Current.MainWindow, MessageBoxButton.OK);
                 return false;
             }
 
@@ -363,7 +365,7 @@ namespace SoftwarePack
                               $"\r\n!define PRODUCT_VERSION             \"{softVersion}\"  #ProductVersion必须是X.X.X.X" +
                               $"\r\n!define PRODUCT_PUBLISHER           \"Micahh\"" +
                               $"\r\n!define PRODUCT_LEGAL               \"Micahh Copyright（c）2021\"" +
-                              $"\r\n!define INSTALL_OUTPUT_NAME         \"{softName}_Setup_{DateTime.Now.ToString("yyyyMMddHHmm")}.exe\"" +
+                              $"\r\n!define INSTALL_OUTPUT_NAME         \"{softName}_Setup_{softVersion}.exe\"" +
                               "\r\n# ====================== 自定义宏 安装信息==============================" +
                               "\r\n!define INSTALL_7Z_PATH             \"..\\app.7z\"" +
                               "\r\n!define INSTALL_7Z_NAME             \"app.7z\"" +
@@ -400,7 +402,7 @@ namespace SoftwarePack
         /// <param name="e"></param>
         private void lbl_OpenResource_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("explorer.exe", Path.Combine(rootDirPath, @"SoftSetupCore\SetupScripts\runtime\skin\form\"));
+            Process.Start("explorer.exe", Path.Combine(rootDirPath, @"SoftSetupCore\SetupScripts\runtime\skin\form\"));
         }
 
         /// <summary>
@@ -410,7 +412,7 @@ namespace SoftwarePack
         /// <param name="e"></param>
         private void lbl_OpenOutput_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("explorer.exe", Path.Combine(rootDirPath, @"Output\"));
+            Process.Start("explorer.exe", Path.Combine(rootDirPath, @"Output\"));
         }
 
         /// <summary>
@@ -421,7 +423,7 @@ namespace SoftwarePack
         private void lbl_Ver_MouseUp(object sender, MouseButtonEventArgs e)
         {
             //调用系统默认的浏览器 
-            System.Diagnostics.Process.Start("explorer.exe", "https://github.com/micahh28");
+            Process.Start("explorer.exe", "https://github.com/micahh28");
         }
     }
 

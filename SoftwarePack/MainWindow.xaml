@@ -7,7 +7,7 @@
         xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
         mc:Ignorable="d"
          Title="SofwarePack" Height="660" Width="420" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid>
+    <Grid Background="#F6F6F6">
         <Grid.RowDefinitions>
             <RowDefinition Height="199*"/>
             <RowDefinition Height="533*"/>
@@ -34,7 +34,7 @@
             <TextBox HorizontalAlignment="Left" Text="1.0.0.0" FontSize="20" x:Name="txtSoftVersion" Width="250" Height="30" Foreground="Black" VerticalContentAlignment="Center" Margin="132,95,0,338"                     
                      pu:TextBoxHelper.FocusedBorderBrush="#00FFE2"
                      pu:TextBoxHelper.FocusedShadowColor="#00FFE2"
-                     pu:TextBoxHelper.CornerRadius="6">
+                     pu:TextBoxHelper.CornerRadius="6" Cursor="IBeam">
             </TextBox>
 
             <Label Content="软件路径：" HorizontalAlignment="Left" Margin="62,152,0,0" VerticalAlignment="Top" Height="25" Width="70"/>
@@ -68,10 +68,6 @@
 
         <!--界面图片自定义-->
         <Grid x:Name="step2" Visibility="Hidden" Grid.Row="1">
-            <Label Content="刷新" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Cursor="Hand" Margin="-21,375,0,0" VerticalAlignment="Top" Height="25" Width="94">
-
-            </Label>
-
             <!--主图-->
             <Label Content="主图片(1张)：请添加安装程序主界面（尺寸570*247）" HorizontalAlignment="Left" Margin="21,5,0,0" VerticalAlignment="Top" Height="25" Width="355"/>
             <Border BorderThickness="1" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="150,30,150,0" Height="85" Width="120">
@@ -104,9 +100,7 @@
                 <Image x:Name="img_Uninstall_3" MouseUp="img_form_MouseUp" Source="images/btn_addimg.png" HorizontalAlignment="Left" Stretch="Fill"  Height="85"  VerticalAlignment="Top" Width="120"/>
             </Border>
 
-            <Label Name="lbl_OpenResource" Content="打开资源所在文件夹" Cursor="Hand" HorizontalAlignment="Left" Margin="150,375,0,0" VerticalAlignment="Top" Height="25" Width="130" Foreground="Gray" FontStyle="Italic" MouseUp="lbl_OpenResource_MouseUp"/>
-
-            <Label Name="lbl_OpenOutput" Content="打开输出文件夹" Cursor="Hand" HorizontalAlignment="Left" Margin="303,375,0,0" VerticalAlignment="Top" Height="25" Width="99" Foreground="Gray" FontStyle="Italic" MouseUp="lbl_OpenOutput_MouseUp"/>
+            <Label Name="lbl_OpenOutput" Content="打开输出文件夹" Cursor="Hand" HorizontalAlignment="Left" Margin="21,421,0,0" VerticalAlignment="Top" Height="25" Width="99" Foreground="Gray" FontStyle="Italic" MouseUp="lbl_OpenOutput_MouseUp"/>
 
             <Button x:Name="btnLastStep" Content="上一步" Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="206,420,0,0" VerticalAlignment="Top" Width="87" Height="27" RenderTransformOrigin="0.506,0.481" Click="btnLastStep_Click" pu:ButtonHelper.ClickStyle="Sink" FontFamily="{StaticResource FontAwesome}" Background="#C800AAFF" pu:ButtonHelper.HoverBrush="#00AAFF" pu:ButtonHelper.CornerRadius="8"/>
             <Button x:Name="btnBuild" Content="打包" Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="313,420,0,0" VerticalAlignment="Top" Width="89" Height="27" Click="btnBuild_Click" RenderTransformOrigin="0.506,0.481" pu:ButtonHelper.ClickStyle="Sink" FontFamily="{StaticResource FontAwesome}" Background="#C800AAFF" pu:ButtonHelper.HoverBrush="#00AAFF" pu:ButtonHelper.CornerRadius="8"/>
